@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+
+        }
+        body {
+            background: #f5f5f5;
+        }
+        .nav1 {
+            width: 100%;
+            height: 70px;
+            background: #333;
+            margin: 0 auto;
+        }
+        .nav2 {
+            width: 100%;
+            height: 35px;
+            background: #C20C0C;
+            margin: 0 auto;
+            border-bottom: 1px solid #a40011;   
+        }
+        .nav3 {
+            padding: 47px 30px 40px 39px;
+            background: url(http://music.163.com/style/web2/img/frame/wrap4.png?85420cae221f8374e0911c161cc424e7) repeat-y center 0 ;
+            margin: 0 auto;
+            width: 895px;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+
+        }
+        .cloud-logo {
+            width: 157px;
+            height: 69px;
+            background: url(http://music.163.com//style/web2/img/frame/topbar.png?c0f46e2123c2f4a9b35b4351b814e349) no-repeat;
+            margin-left: 55px;
+        }
+        .album-info {
+            width: 720px;
+            overflow: hidden; 
+        }
+        .album-picture {
+            width: 209px;
+            height: 177px;
+            background: url(https://music.163.com/style/web2/img/coverall.png?022076512f4f614a83a3df8aef1e8bfc) no-repeat 0px -986px;
+            float: left;
+        }
+        .album-picture img {
+            width: 177px;
+            height: 177px;
+        }
+        .right {
+            float: left;
+            width: 410px;
+            height: 98px;
+            padding-left: 20px;
+        }
+        .album-logo {
+            background: url(https://music.163.com/style/web2/img/icon.png?9ee6dd77e7cf8ed1c48e5d02a7a400ec) no-repeat 0 -184px;
+            width: 55px;
+            height: 30px;
+            float: left;
+        }
+        .album-name {
+            float: left;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .album-summary {
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .singer-info div {
+            color: #666;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .singer-name {
+            text-decoration: none;
+            color:#0c73c2;    
+        }
+        .singer-name:visited {
+            color:#0c73c2;
+        }
+        .album-introduction  {
+            width: 640px;
+            margin-top: 20px;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        .album-introduction h3 {
+            font-size: 100%;
+        }
+        .album-introduction p {
+            text-indent: 2em;
+            line-height: 24px;
+            margin-top: 4px;
+            color: #666;
+        }
+        .music-list {
+            width: 980px;
+            margin-top: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 20px;
+            line-height: 28px;
+            display: inline;
+        }
+        .music-count {
+            color: #666;
+            font-size: 12px;
+            display: inline-block;
+            margin-left: 10px
+        }
+        .audio {
+            width: 640px;
+            border-top: 1px solid #f00;
+        }
+        .music-table{
+            width: 100%;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #f00;
+        }
+        .header {
+            border-color: gray;
+            background: #f7f7f7;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #666;
+            text-align-last: left;
+        }
+        .header-1 {
+            width: 54px;
+            height: 17px;
+            padding: 8px 10px;
+            font-weight: normal;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .header-2 {
+            width: 326px;
+            height: 17px;
+            line-height: 18px;
+            padding: 8px 10px;
+            background: url(http://music.163.com/style/web2/img/table.png?0232e3a231a0b055a7b06ab220944ee1) no-repeat ;
+            background-position: 0 -59px;
+            font-weight: normal;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .header-3 {
+            width: 198px;
+            height: 17px;
+            padding: 8px 10px;
+            font-weight: normal;
+            border-bottom: 1px solid #e1e1e1;
+            background: url(http://music.163.com/style/web2/img/table.png?0232e3a231a0b055a7b06ab220944ee1) no-repeat ;
+            background-position: 0 -59px;
+        }
+
+        .item {
+            padding: 6px 10px;
+            font-size: 12px;
+            color: #333;
+        }
+        td {
+            background: #f7f7f7 ;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- nav1: 顶部黑色条 -->
+        <div id = "top" class="nav1">
+            <div class="cloud-logo">
+
+            </div>
+        </div>
+        <!-- nav2: 顶部红色条 -->
+        <div class="nav2">
+
+        </div>
+        <!-- nav3: 下面全部 -->
+        <div class="nav3">
+            <div id= "Jay" class="album-info">
+                <div class="album-picture">
+                    <img src="https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg?max_age=2592000" alt="">
+                </div>
+                <div class="right">
+                    <div class="album-summary">
+                        <div class="album-logo">
+                            
+                        </div>
+                        <span class="album-name">
+                            Jay
+                        </span>
+                    </div>
+
+                    <div class="singer-info">
+                        <div>
+                            歌手： <a class="singer-name" href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156?fr=aladdin" target="_blank">周杰伦</a>
+                        </div>
+                        <div>
+                            发行时间：2000-11-07
+                        </div>
+                        <div>
+                            发行公司： 阿尔发音乐
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="album-introduction">
+                    <h3>专辑介绍：</h3>
+                    <div class="brief">
+                    <p>「杰伦」同名专辑，整张曲风充斥着杰伦对音乐的超高技术创作，专辑中以R&B及New Hip-Hop的新曲为主，加上古典巴洛克式弦乐伴奏及Band的加入，形成一种英国式的复古风格，更特别的是，杰伦尝试着把超高难度，西班牙式风格的弦乐演奏，表现在专辑歌曲中，意境却出忽意料的极度逼近电影配乐，这种音乐是台湾目前所没有的。
+                        此张专辑中杰伦一手包办了十首歌的制作、作曲、合声编写、三首歌的编曲以及二首歌的作词。主打歌“可爱女人”由徐若瑄填词、周杰伦谱曲、编曲，整首表现着一股全新的R&B味道，简单的歌词却散发出无限的想象空间，摆脱市场上一般的芭乐曲风，但是却有着另一股新音乐的感觉。另一首“黑色幽默”则是深刻的描述着周杰伦内心感情世界的一环，剖白的记忆着女友离去时那一刻的心情，全新大陆十二人弦乐团加上传统旧式Band的表现，呈现出一种英式的复古风格。没人能预测，新音乐的流行趋势到底是什么？唯有创作出的音乐作品，能与听众产生共鸣，才是真正的好音乐，周杰伦的首张同名专辑便应证了这一切。</p> 
+                    </div>
+            </div>
+            <!-- 包含歌曲列表那一行 -->
+            <div class="music-list">
+                <div class="title">
+                    包含歌曲列表
+                </div>
+                <div class="music-count">
+                    10首歌
+                </div>
+            </div>
+            <!-- 播放器的表格 -->
+            <div class="audio">
+                <table cellspacing="0" cellpadding="0" class="music-table" >
+                    <tr class="header">
+                        <th >
+                            <div class="header-1">
+                                
+                            </div>
+                        </th>
+                        <th >
+                            <div class="header-2">
+                                周杰伦
+                            </div>
+                        </th>
+                        <th >
+                            <div class="header-3">
+                                歌曲标题
+                            </div>
+                        </th>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                1
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M500004VR0Hn3bkqqE.mp3?vkey=87215D9F428C97820DAF7AEFAC6C4CE33917E456777A515447CE49A268BC0AE774FEA55C10568DDC754B74435A309540A226E16CA6920E42&guid=442838357&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                可爱女人
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                2
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M500001NQNgU2HfxJg.mp3?vkey=6282A7E92FF50D11D12DBD397B9DEB1C12DF2ADFFF4DC860449CF213997CB6F330FA19C621F27E7FCFA80CA26D435F1CFAB411E87768E96E&guid=51479858&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                完美主义
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                3
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M500001Zi7Ly4ZtVQk.mp3?vkey=810676F0D030572028004A4BA61A1663FF7DEB637B46A61D5EE912DC84B9F02A8282A735763A2F8718984574E6977D6980DB8647C8EEBAB7&guid=573928233&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                星晴
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                4
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M500002pImGM1R2Afa.mp3?vkey=BA432D2AA3DCCD8FEFE867DA8BA7478DAEF8210B2A261027026E42CE7B05B6E30CDB8BA60F7A79E36BF1BB2371945996A77E93EF0DB76721&guid=561182125&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                娘子
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                5
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M500003J20t02i1vV5.mp3?vkey=CCE518B9A43E81EAA6B3E77F2DB79BB951C7079D9A667F6FF48AEEAABA6059689E1FEFA2A3D03BFD06B3401331671D926E982F826DB4D9AD&guid=389379870&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                斗牛
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                6
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M5000006rBfE3htPqG.mp3?vkey=758DF579D88FE184CC26184904F4A722590D4F1CCEEA766A5A3FF1FDD20DBEC2448B65EAC2B5EB320F4C16205C32FF1932D383245F11EE87&guid=356227783&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                黑色幽默
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                7
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M5000033ZO6x09eHB0.mp3?vkey=29A50053947F606B0C4EA39AF5EB179E4AC9B49978061BB457CCC7D609D021B3E2B6ED9AE19D3C9A474C7D3D734C8F0215F70B63459696B8&guid=314302876&uid=0&fromtag=30"  controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                伊斯坦堡
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                8
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M500002GQJAQ3w9yuh.mp3?vkey=5658C095A21F914540A5CAFF7707EC5E58267147C8C93008D6E3CD860DA9744FAB99B8F460BED818CA00F45B2648F3798BA9F591D5AF5E1B&guid=605463903&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                印第安老斑鸠
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                9
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M500002l8JN71d2Dxy.mp3?vkey=A8EDFB6393D5FC138E04D1D32B299E7789447AB518EEAA4F9713EAF33559EFD6EC983ED2EC111F351C5C1C766F2F9D9575F38E76F9E90160&guid=1080306768&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                龙卷风
+                            </div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <div class="item">
+                                10
+                            </div>
+                        </td>
+                        <td> 
+                            <div class="item">
+                                <audio src="https://dl.stream.qqmusic.qq.com/M5000017K7gL4WYnw2.mp3?vkey=52FF2CB63CAAB1E38D17E83A66B8685658E76DB02181FB83C83F86CD96F6550D98881553B5A2C0B7C39282586E8C090A6C142BCD11CE8537&guid=206874344&uid=0&fromtag=30" controls="controls"></audio>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="item">
+                                反方向的钟
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
